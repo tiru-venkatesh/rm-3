@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body, #root { height: 100%; }
+  body {
+    background: #07070c;
+    color: rgba(255,255,255,0.92);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-3.5 py-2
+           rounded-lg text-sm font-medium transition-all duration-150
+           cursor-pointer select-none;
+  }
+  .btn-primary {
+    @apply btn text-white disabled:opacity-40 disabled:cursor-not-allowed;
+    background: #7c3aed;
+    box-shadow: 0 0 18px rgba(124,58,237,0.25);
+  }
+  .btn-primary:hover:not(:disabled) { background: #6d28d9; box-shadow: 0 0 24px rgba(124,58,237,0.4); }
+  .btn-ghost  { @apply btn text-t2 hover:bg-t4 hover:text-t1; }
+  .btn-outline {
+    @apply btn text-t2 hover:text-t1 hover:bg-t4;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+  }
+  .glass {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    backdrop-filter: blur(16px);
+  }
+  .card {
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+  .field {
+    @apply w-full px-3 py-2.5 text-sm rounded-lg text-t1 placeholder:text-t3
+           focus:outline-none transition-colors;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+  }
+  .field:focus {
+    border-color: rgba(124,58,237,0.5);
+    box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+  }
+  .label {
+    @apply block text-xs font-medium text-t3 mb-1.5 uppercase tracking-wider;
+  }
+}
+
+/* Syntax highlighting */
+.tok-kw  { color: #a78bfa; }
+.tok-fn  { color: #f9a8d4; }
+.tok-str { color: #86efac; }
+.tok-num { color: #fde68a; }
+.tok-cm  { color: rgba(255,255,255,0.28); font-style: italic; }
+.tok-op  { color: #5eead4; }
+
+/* Markdown in chat */
+.md-body p           { margin-bottom: 0.6em; }
+.md-body p:last-child { margin-bottom: 0; }
+.md-body h1,.md-body h2,.md-body h3 { font-weight: 600; margin: 0.8em 0 0.4em; color: rgba(255,255,255,0.92); }
+.md-body code        { font-family: 'JetBrains Mono', monospace; font-size: 0.8em; background: rgba(124,58,237,0.15); color: #c4b5fd; padding: 1px 5px; border-radius: 4px; }
+.md-body pre         { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 12px; overflow-x: auto; margin: 0.6em 0; }
+.md-body pre code    { background: none; padding: 0; color: rgba(255,255,255,0.8); }
+.md-body ul,.md-body ol { padding-left: 1.4em; margin: 0.4em 0; }
+.md-body li          { margin-bottom: 0.25em; }
+.md-body strong      { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+::-webkit-scrollbar       { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.35); border-radius: 99px; }
