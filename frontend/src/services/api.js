@@ -1,6 +1,6 @@
 import { auth } from './firebase.js';
 
-const BASE = '/api';
+const BASE = 'https://rm-3.onrender.com/api';
 
 async function getHeaders() {
   const token = await auth.currentUser?.getIdToken();
